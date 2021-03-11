@@ -1,0 +1,24 @@
+<h1 *ngIf="digit >= 0">
+  You have pressed: {{ digit }}
+</h1>
+
+<h1 *ngIf="digit < 0">
+  Please press a number
+</h1>
+
+<hr>
+<app-pager (displayRage)="pageTo($event)"></app-pager>
+<hr>
+
+<app-numbers
+  *ngFor="let i of display"
+  [digit]="i"
+  (digitClicked)="processDigit($event)"
+>
+</app-numbers>
+
+<div>
+  <button type="button" (click)="reset()">
+    Reset
+  </button>
+</div>
